@@ -1,1 +1,1 @@
-### :point_right: This starter repo has moved to the [ionic-team/starters](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/blank) repo! :point_left:
+### :<a href="https://victorolayemi.github.io/ionic-3-internet-radio" target="_blank">Demo page</a>: 
