@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Ionic Internet Radio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let track of myTracks">
+      <ion-thumbnail item-left>
+        <img src="{{track.art}}">
+      </ion-thumbnail>
+      <h2>{{track.title}}</h2>
+      <button  item-right ion-button (click)="currentTrack = track"><ion-icon name="ios-play"></ion-icon></button>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>
+  <ion-footer color="primary">
+  <audio-track #audioTrack [track]="currentTrack" [autoplay]="true" (onFinish)="onTrackFinished($event)">
+
+	 <ion-toolbar color="dark">
+	 <div style="display: flex; justify-content: center;">
+      <button ion-button icon-only (click)="audioTrack.canPlay ? audioTrack.play() : next()"><ion-icon name="ios-play"></ion-icon></button>
+      <button ion-button icon-only (click)="audioTrack.pause()"><ion-icon name="ios-pause"></ion-icon></button>
+	  
+      
+	  
+    </div>
+  
+		 <div style="display: flex; justify-content: center;">
+  <div *ngIf="audioTrack && audioTrack.hasLoaded" color="light"><em style="color:#ffffff">{{ audioTrack?.title }}</em></div>
+      <ion-spinner color="light" *ngIf="audioTrack && audioTrack.isLoading"></ion-spinner>
+      
+	  
+    </div>
+  
+	
+  </ion-toolbar>
+	
+  </audio-track>
+</ion-footer>
